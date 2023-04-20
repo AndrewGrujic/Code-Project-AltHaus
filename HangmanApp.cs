@@ -133,6 +133,7 @@ namespace Code_Project_AltHaus
         {
             StringBuilder outString = new();
 
+            //This says it is an unnecessary of a value to letter but there isn't a cleaner way I could think to do it.
             foreach (char letter in origin)
             {
                 outString.Append('_');
