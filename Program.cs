@@ -9,7 +9,7 @@ namespace Code_Project_AltHaus
     {
         public static void Main()
         {
-            //Simple string array to add new possible programs easily
+            //Simple string array to add new possible programs easily.
             string[] apps = {"Quit","Pension", "BMI Calculator", "Hangman"};
 
         
@@ -20,6 +20,8 @@ namespace Code_Project_AltHaus
             Console.WriteLine("Alternatively, enter 0 to exit.");
             Console.WriteLine();
 
+
+            //Forms the app array into a list of options that the user can see and select.
             int i = 0;
             foreach (var appString in apps)
             {
