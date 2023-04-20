@@ -9,6 +9,7 @@ namespace Code_Project_AltHaus
     {
         public static void Main()
         {
+            //Simple string array to add new possible programs easily
             string[] apps = {"Quit","Pension", "BMI Calculator", "Hangman"};
 
         
@@ -25,6 +26,7 @@ namespace Code_Project_AltHaus
                 Console.WriteLine($"{i++}: {appString}");
             }
 
+            //Parses an input and selects the appropriate app to open.
             bool isValid = Int32.TryParse(Console.ReadLine(), out int appNum);
             if ( appNum == 0 && isValid ) {Console.WriteLine("Quitting..."); return;}
 

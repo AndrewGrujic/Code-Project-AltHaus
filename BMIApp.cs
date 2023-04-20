@@ -9,7 +9,7 @@ namespace Code_Project_AltHaus
 {
     internal class BMIApp
     {
-        
+        //Enums classes for the weight class BMI calculates.
         enum BMIClass
         {
             Underweight,
@@ -25,9 +25,8 @@ namespace Code_Project_AltHaus
             Console.WriteLine("Please enter your weight in KG:");
 
         UserWeight:
-
-            bool weightCheck;
-            weightCheck = Double.TryParse(Console.ReadLine(), out double userWeight);
+        //Parses and validates the input for the user weight.
+            bool weightCheck = Double.TryParse(Console.ReadLine(), out double userWeight);
             if (userWeight <= 0 || !weightCheck)
             {
                 Console.WriteLine("This is not a valid weight, please try again.");
@@ -37,20 +36,21 @@ namespace Code_Project_AltHaus
             Console.WriteLine("Please enter your height in meters:");
 
         UserHeight:
-            bool heightCheck;
-            heightCheck = Double.TryParse(Console.ReadLine(), out double userHeight);
+        //Parses and validates the input for the user height.
+            bool heightCheck = Double.TryParse(Console.ReadLine(), out double userHeight);
             if (userHeight <= 0 || !heightCheck )
             {
                 Console.WriteLine("This is not a valid height, please try again.");
                 goto UserHeight;
             }
 
+            //Main calculation and rounding for the user BMI to be output.
             double squaredHeight = userHeight * userHeight;
             double outBMI = Math.Round(userWeight / squaredHeight, 2);
 
             Console.Clear();
 
-
+            //Range simply makes sure that that BMI range fits within 1 of the 4 classes.
             switch (outBMI)
             {
                 case double range when range < 18.5:
@@ -68,7 +68,7 @@ namespace Code_Project_AltHaus
                     Console.WriteLine();
                     break;
 
-                case double range when range > 30:
+                case double range when range >= 30:
                     Console.WriteLine($"Your BMI is {outBMI} which means your class is {BMIClass.Obese}");
                     Console.WriteLine();
                     break;
@@ -79,7 +79,13 @@ namespace Code_Project_AltHaus
             Console.WriteLine("0: Quit BMI Calculator");
             Console.WriteLine("1: Retry BMI Calculation");
 
-            Int32.TryParse(Console.ReadLine(), out int selection);
+            bool isValid = Int32.TryParse(Console.ReadLine(), out int selection);
+
+            if (selection < 0 || !isValid)
+            {
+                Console.WriteLine("This is not a valid selection, please try again.");
+                goto SelectionRetry;
+            }
 
             switch (selection)
             {

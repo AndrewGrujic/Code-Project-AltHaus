@@ -9,7 +9,6 @@ namespace Code_Project_AltHaus
 {
     internal class PensionApp
     {
-        // Pension Calculation done by multiplying service by average wage then diving by 60.
         public static void Pension()
         {
             Console.WriteLine("Welcome to the Pension Calculator");
@@ -18,14 +17,16 @@ namespace Code_Project_AltHaus
             Console.WriteLine("Please enter how many years you have worked for:");
 
         YearsWorked:
-            Int32.TryParse(Console.ReadLine(), out int workedYears);
-            if (workedYears <= 0)
+        //Passes through the amount of years worked for and validates it.
+            bool isValidYears = Int32.TryParse(Console.ReadLine(), out int workedYears);
+            if (workedYears <= 0 || !isValidYears)
             {
                 Console.WriteLine("This is not a valid amount of years, please try again.");
                 goto YearsWorked;
             }
 
         AverageSalary:
+        //Passes through the final average salary and validates it.
             Console.WriteLine("Please enter your final average salary per year:");
             bool isValidSalary = Double.TryParse(Console.ReadLine(), out double averageSalary);
             if (averageSalary <= 0 || !isValidSalary)
@@ -34,6 +35,7 @@ namespace Code_Project_AltHaus
                 goto AverageSalary;
             }
 
+            //Main calculation and output for the pension salary to be output.
             double pensionSalary = workedYears * 0.02 * averageSalary;
 
             Console.Clear();
@@ -45,9 +47,10 @@ namespace Code_Project_AltHaus
             Console.WriteLine("0: Quit Pension Calculator");
             Console.WriteLine("1: Retry Pension Calculation");
 
+        //Parses and validates the selection on if the user wants to quit out or retry.
             bool isValid = Int32.TryParse(Console.ReadLine(), out int selection);
 
-            if (selection < 0 && !isValid)
+            if (selection < 0 || !isValid)
             {
                 Console.WriteLine("This is not a valid selection, please try again.");
                 goto SelectionRetry;

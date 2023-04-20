@@ -4,6 +4,7 @@ namespace Code_Project_AltHaus
 {
     internal class HangmanWords
     {
+        //This is simply the list of words that Hangman can pull from, ideally this would like to be in a json/xml file for changes, but this is much easier.
         public static string[] HangmanWordList()
         {
             string[] wordList =
