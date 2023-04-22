@@ -10,7 +10,7 @@ namespace Code_Project_AltHaus
         public static void Main()
         {
             //Simple string array to add new possible programs easily.
-            string[] apps = {"Quit","Pension", "BMI Calculator", "Hangman"};
+            string[] apps = {"Quit","Pension", "BMI Calculator", "Hangman", "High or Low"};
 
         
             Console.WriteLine("Hello there, Please select an app.");
@@ -56,6 +56,12 @@ namespace Code_Project_AltHaus
                     Console.WriteLine("Opening Hangman.");
                     Console.WriteLine();
                     HangmanApp.Hangman();
+                    break;
+                case 4:
+                    Console.Clear();
+                    Console.WriteLine("Opening High or Low.");
+                    Console.WriteLine();
+                    HighLowApp.HighLow();
                     break;
 
                 default:
