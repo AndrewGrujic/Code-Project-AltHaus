@@ -9,7 +9,7 @@ namespace Code_Project_AltHaus
 {
     internal class HighLowApp
     {
-        enum GuessState
+        private enum GuessState
         {
             Higher,
             Lower,
@@ -17,12 +17,11 @@ namespace Code_Project_AltHaus
         }
         public static void HighLow()
         {
-
             Console.WriteLine("Welcome to Higher or Lower");
             Console.WriteLine();
         HighLowStart:
             int userHints = SetHints();
-            int number = NumberSet();
+            int number = SetNumbers();
 
             Console.Clear();
             Console.WriteLine("I am thinking of a number between 1 and 20. I will tell you if it is higher or lower.");
@@ -51,6 +50,7 @@ namespace Code_Project_AltHaus
                     case GuessState.Correct:
                         Console.Clear();
                         Console.WriteLine($"Correct! The number is {number}!");
+                        Console.WriteLine();
                         break;
                 }
             }
@@ -64,11 +64,13 @@ namespace Code_Project_AltHaus
                 {
                     Console.Clear();
                     Console.WriteLine($"Correct! The number is {number}!");
+                    Console.WriteLine();
                 }
                 else
                 {
                     Console.Clear();
                     Console.WriteLine($"Sorry, the correct number was {number}");
+                    Console.WriteLine();
                 }
             }
 
@@ -101,7 +103,7 @@ namespace Code_Project_AltHaus
 
         }
 
-        private static int NumberSet()
+        private static int SetNumbers()
         {
             int setNum = new Random().Next(1,20);
             return setNum;
@@ -130,7 +132,6 @@ namespace Code_Project_AltHaus
         private static int SetHints()
         {
             Console.WriteLine("Please put how many hints you want before you guess:");
-
 
             bool hintCheck = Int32.TryParse(Console.ReadLine(), out int userHints);
             while (!hintCheck || userHints < 0)

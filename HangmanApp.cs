@@ -29,6 +29,7 @@ namespace Code_Project_AltHaus
 
             Console.WriteLine($"This word has {thisWord.Length} letters in it.");
             Console.WriteLine(obscuredWord);
+            Console.WriteLine();
             Console.WriteLine("Please input a character to guess:");
             Console.WriteLine($"You have {userAttempts} lives left");
             Console.WriteLine();
@@ -114,7 +115,7 @@ namespace Code_Project_AltHaus
 
         /*This method is sort of hacky, the list is hardcoded into another class as a string array and is fetched from that class.
         From there it selects at random a value from that array and returns it to the main method.
-        It's not the best way as it loads in an entire array taking up an unnecessary amount of memory, but it's quickly cleared after and is easier for me to implement.
+        It's not the best way as it loads in an entire array taking up an unnecessary amount of memory, but it's quickly cleared after and is easier to implement.
         */
         private static string WordGetter()
         {
